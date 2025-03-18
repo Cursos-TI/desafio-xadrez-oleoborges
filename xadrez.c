@@ -28,7 +28,7 @@ int main() {
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
     // Movimentação da Torre: 5 casas para a direita usando 'for'
-    
+
     printf("Movimento da Torre:\n");
         for (int t = 0; t < 5; t++) {
             printf("Direita\n");
@@ -49,6 +49,17 @@ int main() {
             printf("Esquerda\n");
             r++;
         } while (r < 8);
+        
+  // Movimentação do Cavalo: 2 casas para baixo e 1 para a esquerda usando loops aninhados
+        int $movi_cavalo =1;
+        while ($movi_cavalo--)
+        {
+            printf("\nMovimento do Cavalo:\n");
+            for (int c = 0; c < 2; c++) {
+                printf("Baixo\n");
+            }
+            printf("Esquerda\n");
+        }
         
         return 0;
 }
