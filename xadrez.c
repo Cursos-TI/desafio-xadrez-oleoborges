@@ -3,6 +3,31 @@
 // Desafio de Xadrez - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Função recursiva para movimentar a Torre (5 casas para a direita)
+    void moverTorre(int casas) {
+        if (casas == 0) return;
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+
+    // Função recursiva para movimentar a Rainha (8 casas para a esquerda)
+    void moverRainha(int casas) {
+        if (casas == 0) return;
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+
+    // Função recursiva para movimentar o Bispo, combinada com loops aninhados
+    void moverBispo(int vertical, int horizontal) {
+        if (vertical == 0) return;
+        
+        // Movimento horizontal dentro do movimento vertical
+        for (int h = 0; h < horizontal; h++) {
+            printf("Cima, Direita\n");
+        }
+        
+        moverBispo(vertical - 1, horizontal);
+    }
 
 int main() {
     // Nível Novato - Movimentação das Peças
@@ -29,37 +54,29 @@ int main() {
     // Inclua o uso de continue e break dentro dos loops.
     // Movimentação da Torre: 5 casas para a direita usando 'for'
 
-    printf("Movimento da Torre:\n");
-        for (int t = 0; t < 5; t++) {
-            printf("Direita\n");
-        }
+        // Movimentação da Torre
+        printf("Movimento da Torre:\n");
+        moverTorre(5);
 
-    // Movimentação do Bispo: 5 casas na diagonal para cima e à direita usando 'while'
+        // Movimentação do Bispo
         printf("\nMovimento do Bispo:\n");
-        int b = 0;
-        while (b < 5) {
-            printf("Cima, Direita\n");
-            b++;
-        }
+        moverBispo(5, 1);
 
-    // Movimentação da Rainha: 8 casas para a esquerda usando 'do-while'
+        // Movimentação da Rainha
         printf("\nMovimento da Rainha:\n");
-        int r = 0;
-        do {
-            printf("Esquerda\n");
-            r++;
-        } while (r < 8);
-        
-  // Movimentação do Cavalo: 2 casas para baixo e 1 para a esquerda usando loops aninhados
-        int $movi_cavalo =1;
-        while ($movi_cavalo--)
-        {
-            printf("\nMovimento do Cavalo:\n");
-            for (int c = 0; c < 2; c++) {
-                printf("Baixo\n");
+        moverRainha(8);
+
+        // Movimentação do Cavalo: 2 casas para cima e 1 para a direita usando loops aninhados
+        printf("\nMovimento do Cavalo:\n");
+        for (int i = 0; i < 2; i++) {
+            printf("Cima\n");
+            if (i == 1) {
+                for (int j = 0; j < 1; j++) {
+                    printf("Direita\n");
+                    break; // Para evitar iterações desnecessárias
+                }
             }
-            printf("Esquerda\n");
         }
-        
+                
         return 0;
 }
